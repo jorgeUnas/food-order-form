@@ -5,8 +5,15 @@ function FoodOrderForm() {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [order, setOrder] = useState('');
+  
+  function handleSubmit(e){
+    e.preventDefault();
+    alert(`Order Successful!
+            Your order was ${order}.
+            Please show your confirmation number for pickup.`);
+  }
 return (
-  <form>
+  <form onSubmit={handleSubmit} >
     <label htmlFor="name">Name</label>
     <input id="name" valeu={name} onChange={(e) => setName(e.target.value)}/>
     <label htmlFor="phone" >Phone</label>
@@ -15,7 +22,7 @@ return (
     <input id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
     <label htmlFor="order" >Order</label>
     <input id="order" value={order} onChange={(e) => setOrder(e.target.value)} />
-    <button type="submit" >Submit Order</button>
+    <button type="submit"  >Submit Order</button>
   </form>
 )
 }
